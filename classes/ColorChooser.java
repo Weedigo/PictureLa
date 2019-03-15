@@ -9,7 +9,7 @@ import java.awt.Color;
  * 
  * @author Barb Ericson ericson@cc.gatech.edu
  */
-public class ColorChooser 
+public class ColorChooser
 {
   
   /**

@@ -57,6 +57,20 @@ public class PictureTester
     kitten.zeroGreen();
     kitten.explore();
   }
+
+  public static void testNegate() {
+    Picture femaleLion = new Picture("femaleLionAndHall.jpg");
+    femaleLion.explore();
+    femaleLion.negate();
+    femaleLion.explore();
+  }
+
+  public static void testGrayscale() {
+    Picture swan = new Picture("swan.jpg");
+    swan.explore();
+    swan.grayscale();
+    swan.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -66,11 +80,11 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    testKeepOnlyBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    //testGrayscale();
+    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();

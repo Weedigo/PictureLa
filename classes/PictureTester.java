@@ -26,12 +26,18 @@ public class PictureTester
     caterpillar.explore();
   }
 
-  //mirror horizontal has problems
   public static void testMirrorHorizontal() {
     Picture butterfly = new Picture("butterfly1.jpg");
     butterfly.explore();
     butterfly.mirrorHorizontal();
     butterfly.explore();
+  }
+
+  public static void testMirrorHorizontalBotToTop() {
+    Picture arch = new Picture("arch.jpg");
+    arch.explore();
+    arch.mirrorHorizontalBotToTop();
+    arch.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -95,6 +101,8 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
+    //testMirrorHorizontal();
+    testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();

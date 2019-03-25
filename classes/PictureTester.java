@@ -56,7 +56,27 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
-  
+
+  public static void testMirrorArms(){
+    Picture snowman = new Picture("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+
+  public static void testMirrorGull() {
+    Picture gull = new Picture("seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
+
+  public static void testCopy() {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.createCollage();
+    canvas.explore();
+  }
+
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -108,7 +128,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();

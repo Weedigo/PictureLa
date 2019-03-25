@@ -261,6 +261,25 @@ public class Picture extends SimplePicture
     }
   }
 
+  public void mirrorGull() {
+    int mirrorPoint = 364;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+    // loop through the rows
+    for (int row = 228; row < 340; row++) {
+      // loop from 13 to just before the mirror point
+      for (int col = 228; col < mirrorPoint; col++) {
+
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row]
+                [mirrorPoint - col + mirrorPoint];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -291,6 +310,53 @@ public class Picture extends SimplePicture
       }
     }   
   }
+
+  public void copy2(Picture fromPic, int startRow, int endRow, int startCol, int endCol) {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+
+    for (int fromRow = 0, toRow = startRow;
+         fromRow < fromPixels.length &&
+                 toRow < endRow;
+         fromRow++, toRow++)
+    {
+      for (int fromCol = 0, toCol = startCol;
+           fromCol < fromPixels[0].length &&
+                   toCol < endCol;
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
+  }
+
+  public void myCollage() {
+    Picture flower1 = new Picture("flower1.jpg");
+    Picture flower2 = new Picture("flower2.jpg");
+
+    this.copy2(flower1,0,100, 0, 100);
+
+    int mirrorPoint = 98;
+    Pixel rightPixel = null;
+    Pixel leftPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 0; row < 98; row++)
+    {
+      for (int col = 0; col < 88; col++)
+      {
+        rightPixel = pixels[row][col];
+        leftPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
+
+  }
+
+
 
   /** Method to create a collage of several pictures */
   public void createCollage()

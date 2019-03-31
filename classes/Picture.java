@@ -400,5 +400,48 @@ public class Picture extends SimplePicture
     beach.zeroBlue();
     beach.explore();
   }
+
+  public int getCounterRedOverValue(int value) {
+    Pixel[][] pixels = this.getPixels2D();
+    int counter = 0;
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel obj : rowArray) {
+        if (obj.getRed() > value) {
+          counter++;
+        }
+      }
+    }
+    return counter;
+  }
+
+  public void setRedToHalfValueInTopHalf(){
+    Pixel[][] pixels = this.getPixels2D();
+    for( Pixel[] rowArray: pixels){
+      for(Pixel obj: rowArray){
+        obj.setRed(obj.getRed()/2);
+      }
+    }
+  }
+
+  public void clearBlueOverValue(int value){
+    Pixel[][] pixels = this.getPixels2D();
+    for( Pixel[] rowArray: pixels){
+      for(Pixel obj: rowArray){
+        if(obj.getBlue() > value){
+          obj.setBlue(0);
+        }
+      }
+    }
+  }
+  public int[] getAverageForColumn(int col){
+    Pixel[][] pixels = this.getPixels2D();
+    int [] arr = new int [pixels.length];
+    for (int row =0; row < pixels.length; row++)
+    {
+      int average = (pixels[row][col].getBlue() + pixels[row][col].getGreen() + pixels[row][col].getRed())/3;
+      arr[row] = average;
+    }
+    return arr;
+  }
   
 } // this } is the end of class Picture, put all new methods before this
